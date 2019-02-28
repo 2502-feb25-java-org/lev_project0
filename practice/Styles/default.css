@@ -1,0 +1,13 @@
+/* a, img
+{
+    padding-left: 100px;
+} */
+
+#col1, #col2, #col3, footer
+{
+    border-style: solid;
+}
+
+header{
+    text-align: center;
+}

@@ -1,15 +1,44 @@
-// var add = {
-//     temp: function(){alert("It works")}
-// };
-// add.temp();
-
-var x=10;
-
-{
-    //debugger;
-    
-    let x = 5;
-    alert(x);
+function storeValue() {
+    let elementId = event.target.id;
+    let element = document.getElementById(elementId);
+    if (element.type == "radio")
+        localStorage.setItem(element.name, elementId);
+    else
+        localStorage.setItem(elementId, element.value);
 }
 
-alert(x);
+function loadValue(elementId) {
+    let element = document.getElementById(elementId);
+    if (element.type == "radio")
+        loadRadios(element.name);
+    else
+        element.value = localStorage.getItem(elementId);
+}
+
+function reloadValues() {
+    loadValue("first_name");
+    loadValue("last_name");
+    loadValue("male");
+    loadValue("female");
+    loadValue("other");
+    loadValue("age");
+    loadValue("phone");
+    loadValue("email");
+}
+
+function loadRadios(elementName) {
+    debugger;
+    let radios = document.getElementsByName(elementName);
+    //console.log(radios);
+    let storedValue = localStorage.getItem(elementName);
+    for (let index = 0; index < radios.length; index++) {
+        if (radios[index].id == storedValue) {
+            radios[index].value = "On";
+
+        }
+        else {
+            radios[index].value = "Off";
+            alert(radios[index].value);
+        }
+    }
+}

@@ -1,11 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     reloadValues();
-    let inputTags = document.getElementsByTagName("input");
-    for (let index = 0; index < inputTags.length; index++) {
-        inputTags[index].addEventListener("change", () => {
-            storeValue(inputTags[index]);
-        });
-    }
+    createOnChangeEvents();
 });
 
 function reloadValues() {
@@ -13,6 +8,16 @@ function reloadValues() {
     for (let index = 0; index < inputTags.length; index++) {
         loadValue(inputTags[index]);
     };
+}
+
+function createOnChangeEvents()
+{
+    let inputTags = document.getElementsByTagName("input");
+    for (let index = 0; index < inputTags.length; index++) {
+        inputTags[index].addEventListener("change", () => {
+            storeValue(inputTags[index]);
+        });
+    }
 }
 
 function storeValue(element) {

@@ -1,0 +1,173 @@
+<!-- comments-->
+<!Doctype html>
+<html lang=en-US>
+
+<head>
+    <title>Sign_up</title>
+    <script src="./Scripts/default.js" defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div class="container border border-dark p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light p-0">
+                <img alt="Image Not found" src="./Images/rev-logo-2.png" width="120" length="120" />
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto justify-content-around" style="width: 600px;">
+                            <li class="nav-item">
+                                <a class="nav-link" href="home.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact_us.html">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="sign_up.html">Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="sign_in.html">Sign In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="sign_in.html" id="game_link">Game Page</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+    <main>
+        <div class="container border border-dark pt-3">
+            <form action="home.html" method="POST" oninput=setNormalSignUp() onsubmit=signUpValidation()>
+                <div class="container row">
+                    <div class="col-lg" id="join-us">
+                        <fieldset>
+                            <legend class="col-lg align-content-center">Join Us</legend>
+                            <div class="form-group row">
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="first_name" id="first_name"
+                                        placeholder="First Name (Required)" required>
+                                </div>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="middle_name" id="middle_name"
+                                        placeholder="Middle Name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="last_name" id="last_name"
+                                        placeholder="Last Name (Required)" required>
+                                </div>
+                                <div class="col-sm">
+                                    <input type="number" class="form-control" name="age" min=16 max=120 id="age"
+                                        placeholder="Age">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm">
+                                    <input type="tel" class="form-control" name="phone" id="phone"
+                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone"
+                                        oninvalid="this.setCustomValidity('Required format ###-###-####')">
+                                </div>
+                                <div class="col-sm">
+                                    <input type="email" class="form-control" id="signup_mail" name="signup_email"
+                                        placeholder="Email (Required)" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg">
+                                    <label for="male">Male <input type="radio" name="gender" id="male" /></label>
+                                    <label for="female"> Female <input type="radio" name="gender" id="female" /></label>
+                                    <label for="others"> Others <input type="radio" name="gender" id="others" /></label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="container col-sm-1"></div>
+                    <div class="container col-lg" id="address">
+                        <fieldset style="border: 1px solid; padding: 10px;">
+                            <legend>Address</legend>
+                            <div class="form-group row">
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="address1" id="address1"
+                                        placeholder="Address Line 1">
+                                </div>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="address2 " id="address2"
+                                        placeholder="Address Line 2">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm">
+                                    <input type="zipcode" class="form-control" name="zipcode" id="zipcode"
+                                        pattern="[0-9]{5}"
+                                        oninvalid="this.setCustomValidity('Required format #####')"
+                                        placeholder="Zipcode">
+                                </div>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="city " id="city" placeholder="City">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="state" id="state" placeholder="State">
+                                </div>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="country" id="country"
+                                    pattern="(USA|US|United States)"
+                                    oninvalid="this.setCustomValidity('Only allows USA.')"    
+                                    placeholder="Country">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group row pt-4">
+                            <div class="col-sm">
+                                <input type="checkbox" name="agree" value="agree" required> Agree to Join
+                            </div>
+                            <div class="col-sm">
+                                <input type="submit" class="form-control" value="Sign Up" name="submit" id="submit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <br>
+    <footer class="footer">
+        <div class="container border border-dark text-center">
+            <a href="https://revature.com/hire-talent/" class="col">&copy; Revature LLC</a>
+            <div class="col p-1">
+                <a href="https://www.facebook.com">
+                    <img src="./Images/facebook.png" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+                </a>
+                <a href="https://www.linkedin.com">
+                    <img src="./Images/linkedin.png" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+                </a>
+                <a href="https://www.twitter.com">
+                    <img src="./Images/twitter.png" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

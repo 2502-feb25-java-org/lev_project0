@@ -4,57 +4,115 @@
 
 <head>
     <title>Home</title>
-    <script src="./Scripts/default.js"></script>
+    <script src="./Scripts/default.js" defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="./Styles/default.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-    <div id="fb-root"></div>
-    <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
-    <div class="container">
-        <header>
-            <div class="container">
+    <header>
+        <div class="container border border-dark p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light p-0">
                 <a href="https://revature.com/">
-                    <img alt="Image Not found"
-                        src="https://revature.com/wp-content/uploads/2017/12/revature-logo-600x219.png" width="200"
-                        length="100" />
+                    <img alt="Image Not found" src="./Images/rev-logo-2.png" width="120" length="120"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto justify-content-around" style="width: 600px;">
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="home.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact_us.html">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="sign_up.html">Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="sign_in.html">Sign In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="sign_in.html" id="game_link">Game Page</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+    <main>
+        <div class="container border border-dark pt-3">
+            <article>
+                <h4>How Revature Fills the Gap Between College and Top Technology Careers</h4>
+                <sect>
+                    <p>Today, coding has become the holy grail of employability skills. But according to Joe Vacca,
+                        Chief Marketing Officer at Revature, the path to a successful career in technology is much
+                        more complex than mastering a few coding languages.</p>
+                    <p>“CIOs, really, as they look at their organization, and look at emerging talent, think ‘OK the
+                        struggles there are really soft skills and business acumen.’ Software developers, engineers,
+                        the technology teams are constantly engaging with the rest of the company. So your ability
+                        to communicate and articulate what you’re doing and analyze requirements is very important.”
+                        <a
+                            href="https://edtechtimes.com/2018/05/04/how-revature-fills-the-gap-between-college-and-top-technology-careers/">
+                            Continue Reading</a></p>
+                    <h4>A coding school where college grads train and work without spending a dime</h4>
+                    <section>
+                        <p>Right around this time last year, Edward Young was donning a cap and gown for graduation
+                            at St. John’s University in New York. He figured his bachelor’s degree in computer
+                            science
+                            would open doors to all sorts of tech jobs, but a few rounds of interviews proved
+                            otherwise.</p>
+                        <p> Scrolling through an employment website months later, Young stumbled across a listing
+                            for Revature, a Northern Virginia company offering 12 weeks of computer programming
+                            classes. Instead
+                            of asking students to hand over upward of $10,000 — the going rate for similar “coding
+                            boot camps”
+                            — Revature pays them minimum wage during the training. And upon graduation, the company
+                            sends its software engineers out on two-year assignments at federal agencies and banks
+                            and other
+                            corporations.
+                            <a
+                                href="https://www.washingtonpost.com/local/education/a-coding-school-where-college-grads-train-and-work-without-spending-a-dime/2017/05/22/787dc544-3bfe-11e7-8854-21f359183e8c_story.html?utm_term=.5b142b944e55">
+                                Continue Reading</a></p>
+                    </section>
+                    <h4>Shared Vision, Key to Investcorp Acquisition of Revature</h4>
+                    <p>Revature, a leading technology talent development company, announced that Investcorp, a
+                        leading global provider and manager of alternative investment products, has acquired a
+                        controlling interest in the company. The terms of the transaction were not disclosed.</p>
+                    <p>Revature's recent growth has been significant and the Investcorp acquisition positions the
+                        company for major expansion over the next few years. The two companies have a shared vision of
+                        how a disruptive talent development model can have a major impact on technology teams around the
+                        globe.
+                        <a
+                            href="https://markets.businessinsider.com/news/stocks/shared-vision-key-to-investcorp-acquisition-of-revature-1027955394">
+                            Continue Reading</a></p>
+            </article>
+        </div>
+    </main>
+    <br>
+    <footer class="footer">
+        <div class="container border border-dark text-center">
+            <a href="https://revature.com/hire-talent/" class="col">&copy; Revature LLC</a>
+            <div class="col p-1">
+                <a href="https://www.facebook.com">
+                    <img src="./Images/facebook.png" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+                </a>
+                <a href="https://www.linkedin.com">
+                    <img src="./Images/linkedin.png" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+                </a>
+                <a href="https://www.twitter.com">
+                    <img src="./Images/twitter.png" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
                 </a>
             </div>
-        </header>
-    </div>
-    <div class="container">
-        <main>
-            <div class="row">
-                <div class="col-sm" id="col1">
-                    <legend>Home</legend>
-                    <div class="container">
-                        <a href="url">Link number 1</a>
-                    </div>
-                    <div class="container">
-                        <a href="url">Link number 2</a>
-                    </div>
-                    <div class="container">
-                        <a href="url">Link number 3</a>
-                    </div>
-                    <div class="container">
-                        <a href="url">Link number 4</a>
-                    </div>
-
-                </div>
-                    
-            </div>
-        </main>
-        </main>
-    </div>
-    <div class="container">
-        <footer>&copy; Revature LLC
-            
-        </footer>
-    </div>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

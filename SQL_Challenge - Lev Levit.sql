@@ -62,6 +62,13 @@ insert into Orders (ProductID, CustomerID)
 values
 (4, 4);
 
+--report all orders by Tina
+select C.FirstName, C.LastName, O.ID as OrderID
+from Customers as C
+inner join Orders as O
+on C.ID = O.CustomerID
+where C.FirstName = 'Tina' AND C.LastName = 'Smith';
+
 -- all revenues from iPhones
 select sum(P.Price)
 from Products as P

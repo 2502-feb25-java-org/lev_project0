@@ -2,6 +2,7 @@ let canvas = document.getElementsByTagName('canvas')[0];
 let scoreElement = document.getElementById('score');
 let countdownElement = document.getElementById('countdown');
 
+let isPaused = false;
 let score = 0;
 let countdown = 30;
 countdownElement.innerHTML = "Countdown: " + countdown;
@@ -12,32 +13,46 @@ let c = canvas.getContext('2d');
 canvas.addEventListener("mousedown", getClickPosition, false);
 canvas.addEventListener("touchstart", getClickPosition, false);
 
+let clickX;
+let clickY;
+
 function getClickPosition(event) {
-    let x = event.x;
-    let y = event.y;
 
-    x -= canvas.offsetLeft;
-    y -= canvas.offsetTop;
+    let clickX = event.x;
+    let clickY = event.y;
 
-    let zone;
+    clickX -= canvas.offsetLeft;
+    clickY -= canvas.offsetTop;
+
     if (event.type == "touchstart")
-        zone = ball.radius + ball.radius * 0.5;
-    else
-        zone = ball.radius;
-        
+        hitZone = ball.radius*2;
 
-    if (x > ball.x - zone && x < ball.x + zone &&
-        y > ball.y - zone && y < ball.y + zone) {
-        score++;
-        ball = new Ball(radius--, velocity++);
-        scoreElement.innerHTML = "Score: " + score;
-    }
+    if (clickX > ball.x - hitZone && clickX < ball.x + hitZone &&
+        clickY > ball.y - hitZone && clickY < ball.y + hitZone)
+        hit();
+}
 
+function hit() {
+    isPaused = true;
+    ball.dx = 0;
+    ball.dy = 0;
+    ball.color = 'red';
+    setTimeout(pauseFunc, 1000);
+}
+
+function pauseFunc() {
+    score++;
+    scoreElement.innerHTML = "Score: " + score;
+    ball = new Ball(radius--, velocity++);
+    hitZone = ball.radius;
+    ball.color = "#F26925";
+    isPaused = false;
 }
 
 class Ball {
-    constructor(radius, velocity) {
+    constructor(radius, velocity, color) {
         this.radius = radius;
+        this.color = color;
         this.x = Math.random() * (width - radius * 2) + radius;
         this.y = Math.random() * (height - radius * 2) + radius;
         let dir = Math.random() * Math.PI * 2;
@@ -50,7 +65,7 @@ class Ball {
         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         c.lineWidth = 3;
         c.strokeStyle = 'black';
-        c.fillStyle = "#F26925";
+        c.fillStyle = this.color;
         c.stroke();
         c.fill();
     }
@@ -68,25 +83,28 @@ class Ball {
 };
 
 setInterval(function () {
-    if (countdown < 0) {
+    if (countdown <= 0) {
         alert("Game over. Your score is " + score + "! Press OK to play again.");
         countdown = 0;
         location.reload();
     }
+    if (!isPaused && countdown > 0)
+        countdown -= 1;
     countdownElement.innerHTML = "Countdown: " + countdown;
-    countdown -= 1;
 }, 1000);
- 
+
 let radius = 30;
 let velocity = 2;
-let ball = new Ball(radius, velocity);
+let color = "#F26925";
+let ball = new Ball(radius, velocity, color);
+let hitZone = ball.radius;
 
 function animate() {
     requestAnimationFrame(animate);
     c.clearRect(0, 0, width, height);
-
     ball.update();
 }
 
 animate();
+
 

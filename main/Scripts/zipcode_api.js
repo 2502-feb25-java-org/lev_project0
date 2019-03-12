@@ -14,6 +14,14 @@ function fillCityState() {
 			str = JSON.parse(xtr.response);
 			city.value = str.City;
 			state.value = str.State;
+
+			let event = new Event('input', {
+				'bubbles': true,
+				'cancelable': true
+			});
+			
+			city.dispatchEvent(event);
+			state.dispatchEvent(event);
 		}
 	}
 	xtr.open("get", URL, true);

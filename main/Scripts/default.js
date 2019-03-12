@@ -19,14 +19,14 @@ function reloadValues() {
 function createOnChangeEvents() {
     let inputTags = document.getElementsByTagName("input");
     for (let index = 0; index < inputTags.length; index++) {
-        inputTags[index].addEventListener("change", () => {
+        inputTags[index].addEventListener("input", () => {
             storeValue(inputTags[index]);
         });
     }
 
     let textAreas = document.getElementsByTagName("textarea");
     for (let index = 0; index < textAreas.length; index++) {
-        textAreas[index].addEventListener("change", () => {
+        textAreas[index].addEventListener("input", () => {
             storeValue(textAreas[index]);
         });
     }
@@ -113,6 +113,8 @@ function setNormalSignIn()
 
     username.setAttribute("class", "form-control");
     password.setAttribute("class", "form-control");
+
+    localStorage.setItem("logedIn", "false");
 }
 
 function setNormalSignUp() {

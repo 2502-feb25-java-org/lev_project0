@@ -63,7 +63,7 @@ function loadRadios(elementName) {
 function signInFirst() {
     let gameLink = document.getElementById("game_link");
     gameLink.addEventListener("click", () => {
-        if (localStorage.username == "admin" && localStorage.password == "123")
+        if (localStorage.getItem("logedIn") == "true")
             gameLink.setAttribute("href", "game.html");
         else
             alert("You must sign in before playing!");
@@ -78,8 +78,7 @@ function validateSignIn() {
         alert("Username and Password don't match any existing login.");
         event.preventDefault();
     }
-    else
-    {
+    else {
         alert("Loged in successfully");
         localStorage.setItem("logedIn", "true");
     }
@@ -87,34 +86,36 @@ function validateSignIn() {
 }
 
 function isValid(username, password) {
-    if (username.value == "admin" && password.value == "123") 
+    if (username.value == "admin" && password.value == "123")
         return true;
-    else 
+    else
         return false;
 }
 
-function setColors()
-{
+function setColors() {
     let valid = localStorage.getItem("logedIn");
     if (valid == "true") {
         username.setAttribute("class", "form-control is-valid");
         password.setAttribute("class", "form-control is-valid");
     }
-    else {
+    else if (valid == "false"){
         username.setAttribute("class", "form-control is-invalid");
         password.setAttribute("class", "form-control is-invalid");
     }
+    else { 
+        username.setAttribute("class", "form-control");
+        password.setAttribute("class", "form-control");   
+    }
 }
 
-function setNormalSignIn()
-{
+function setNormalSignIn() {
     let username = document.getElementById("username");
-    let password = document.getElementById("password"); 
+    let password = document.getElementById("password");
 
     username.setAttribute("class", "form-control");
     password.setAttribute("class", "form-control");
 
-    localStorage.setItem("logedIn", "false");
+    localStorage.setItem("logedIn", "undefined");
 }
 
 function setNormalSignUp() {
@@ -143,11 +144,13 @@ function signUpValidation() {
     let middleName = document.getElementById("middle_name");
     let lastName = document.getElementById("last_name");
 
-    if (firstName.value == middleName.value && middleName.value == lastName.value) {
-        event.preventDefault();
-        alert("First, Last and Middle names can't all be the same.")
+    if (firstName.value.toUpperCase() == middleName.value.toUpperCase()
+        && middleName.value.toUpperCase() == lastName.value.toUpperCase()) 
+    {
         firstName.setAttribute("class", "form-control is-invalid");
         middleName.setAttribute("class", "form-control is-invalid");
         lastName.setAttribute("class", "form-control is-invalid");
+        event.preventDefault();
+        alert("First, Last and Middle names can't all be the same.");   
     }
 }

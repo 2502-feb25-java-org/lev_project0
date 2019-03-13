@@ -10,10 +10,14 @@ function fillCityState() {
 
 	xtr.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
-			// parse JSON to Js Object
 			str = JSON.parse(xtr.response);
 			city.value = str.City;
 			state.value = str.State;
+
+			if (city.value == "undefined") {
+				city.value = "";
+				state.value ="";
+			}
 
 			let event = new Event('input', {
 				'bubbles': true,

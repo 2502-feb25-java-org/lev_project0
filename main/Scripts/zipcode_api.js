@@ -14,6 +14,8 @@ function fillCityState() {
 			city.value = str.City;
 			state.value = str.State;
 
+			console.log(str);
+
 			if (city.value == "undefined") {
 				city.value = "";
 				state.value ="";

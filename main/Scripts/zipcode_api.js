@@ -3,7 +3,7 @@ function fillCityState() {
 	let city = document.getElementById("city");
 	let state = document.getElementById("state");
 
-	const URL = "https://api.zip-codes.com/ZipCodesAPI.svc/1.0/QuickGetZipCodeDetails/" + zip + "?key=DEMOAPIKEY";
+	const URL = "https://api.zip-codes.com/ZipCodesAPI.svc/1.0/QuickGetZipCodeDetails/" + zip + "?key=SVOFFP3Q4V6Z5RTBMD72";
 	let xtr = new XMLHttpRequest();
 	let str;
 

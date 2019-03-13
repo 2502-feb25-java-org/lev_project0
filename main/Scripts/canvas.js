@@ -28,7 +28,7 @@ function getClickPosition(event) {
         hitZone = ball.radius*2;
 
     if (clickX > ball.x - hitZone && clickX < ball.x + hitZone &&
-        clickY > ball.y - hitZone && clickY < ball.y + hitZone)
+        clickY > ball.y - hitZone && clickY < ball.y + hitZone && !isPaused)
         hit();
 }
 

@@ -13,8 +13,12 @@ public class JavaCodingChallenge_Lev_Levit
 		ArrayList<String> polindromes = new ArrayList<String>();
 			
 		for (String word : words) {
-			StringBuilder wordSB = new StringBuilder(word);
-			if (word.equalsIgnoreCase(wordSB.reverse().toString()))
+			String reverse = "";
+			for (char c : word.toCharArray()) {
+				reverse = c + reverse;
+			}
+			
+			if (word.equalsIgnoreCase(reverse))
 					polindromes.add(word);				
 		}
 		

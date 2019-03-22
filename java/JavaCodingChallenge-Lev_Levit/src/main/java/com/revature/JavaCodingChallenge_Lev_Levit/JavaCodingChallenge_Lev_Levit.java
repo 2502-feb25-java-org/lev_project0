@@ -2,6 +2,7 @@ package com.revature.JavaCodingChallenge_Lev_Levit;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 public class JavaCodingChallenge_Lev_Levit 
 {
@@ -23,5 +24,7 @@ public class JavaCodingChallenge_Lev_Levit
 		}
 		
 		System.out.println(polindromes.toString());
+		
+		
     }
 }
